@@ -1,0 +1,25 @@
+---
+title: "My Golf vacation"
+author: "Morne Grewar"
+date: "23/04/2020"
+output: html_document
+---
+
+## Introduction
+
+Since we are stuck in quarentine, we can only dream about golf. SOOO here is my list of 5 courses to play ASAP!!!
+
+### Interactice Map with course locations
+
+```{r locations,echo=F}
+suppressWarnings(library(leaflet))
+golfer <- makeIcon(
+    iconUrl = "https://image.flaticon.com/icons/svg/2820/2820579.svg",
+    iconWidth = 31*215/230, iconHeight = 31,
+    iconAnchorX = 31*215/230/2, iconAnchorY = 16)
+    
+    golf_courses <- data.frame(name = c("PINE VALLEY G.C.", "AUGUSTA NATIONAL G.C.", "CYPRESS POINT G.C.",  "SHINNECOCK HILLS G.C.", "OAKMONT C.C."),lat = c(39.792013,33.502136, 36.580173,40.893984,40.525879),lng = c(-74.972120,-82.022726,-121.974062,-72.439734,-79.826965))
+    golf_courses %>%leaflet() %>%addTiles() %>%addMarkers(lat=golf_courses$lat,lng=golf_courses$lng,popup=golf_courses$name,icon=golfer)
+```
+
+
