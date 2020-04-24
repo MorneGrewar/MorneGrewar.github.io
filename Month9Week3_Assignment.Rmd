@@ -1,0 +1,15 @@
+---
+title: "Month9Week3_Assignment"
+author: "Morne Grewar"
+date: "24/04/2020"
+output: ioslides_presentation
+runtime: shiny
+---
+
+## Plot of the volcano data
+
+```{r, echo=FALSE, message=FALSE}
+suppressWarnings(library(plotly))
+plot_ly(z=~volcano,type="surface")
+```
+
