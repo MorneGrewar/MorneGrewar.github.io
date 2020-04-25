@@ -1,0 +1,60 @@
+---
+title: "Month9Week4_Slides"
+author: "Morne Grewar"
+date: "25/04/2020"
+output: ioslides_presentation
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Main page of application
+
+The main page of the application shows the required inputs and give the output from the model with a graph to show the original data. The code for the regression model is shown below
+
+```{r main, echo = TRUE,eval=FALSE}
+model<- train(as.factor(Species)~.,data=iris,method="rf",
+              trControl=trainControl(method="cv", number=5, verboseIter=F))
+```
+
+## Model accuracy and outputs
+
+The model resuslts are shown below, here it can be seen that the model has an 95% accuracy
+
+```{r model, echo = FALSE}
+suppressMessages(suppressWarnings(library(caret)))
+set.seed(2)
+model<- train(as.factor(Species)~.,data=iris,method="rf",
+              trControl=trainControl(method="cv", number=5, verboseIter=F))
+```
+
+```{r model2, echo = TRUE}
+model$results
+```
+
+## Some info about the model data
+
+The iris dataset is included in the datasets library, with the following properties it is a data frame with 150 cases (rows) and 5 variables (columns) named Sepal.Length, Sepal.Width, Petal.Length, Petal.Width, and Species. The structure of the dataset is shown below
+
+```{r data, echo = FALSE}
+str(iris)
+```
+
+
+## Link to shiny app on server
+
+A screen shot of the app is shown below. The link to the app is <http://mggshiny.shinyapps.io/month9week4_project2> 
+
+```{r picture,echo = FALSE}
+library(jpeg)
+library(grid)
+img<- readJPEG("C:/Users/Morne Grewar/Documents/Coursera Course/Month 9/Week 4/Capture.jpg")
+grid.raster(img,just = "centre")
+```
+
+
+
+
+
